@@ -61,7 +61,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -1648,12 +1648,12 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #212529;
-  background-color: #30caa0;
-  border-color: #30caa0; }
+  background-color: #f8d117 ;
+  border-color: #f8d117 ; }
   .btn-secondary:hover {
     color: #fff;
-    background-color: #29ab88;
-    border-color: #26a17f; }
+    background-color: #fff ;
+    border-color: #fff ; }
   .btn-secondary:focus, .btn-secondary.focus {
     box-shadow: 0 0 0 0.2rem rgba(48, 202, 160, 0.5); }
   .btn-secondary.disabled, .btn-secondary:disabled {
@@ -3029,7 +3029,7 @@ input[type="button"].btn-block {
     color: #fff; }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5); }
+  color:#10284e }
   .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
     color: rgba(255, 255, 255, 0.75); }
   .navbar-dark .navbar-nav .nav-link.disabled {
@@ -4278,7 +4278,7 @@ button.close {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #10284e !important; }
+  background-color: #f8d117 !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,

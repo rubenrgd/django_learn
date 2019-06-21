@@ -2,7 +2,7 @@
 
 {% load humanize %}
 
-{% block title %} | Bem-Vindo {% endblock %}
+{% block title %} | Home {% endblock %}
 
 {% block content %}
   <!-- Showcase -->
@@ -11,28 +11,28 @@
           <div class="home-search p-5">
             <div class="overlay p-5">
               <h1 class="display-4 mb-4">
-                Property Searching Just Got So Easy
+                Buscador
               </h1>
-              <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-                voluptatum tempore! Consectetur, id commodi!</p>
+              <!--<p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
+                voluptatum tempore! Consectetur, id commodi!</p> -->
               <div class="search">
                 <form action="{% url 'search' %}">
                   <!-- Form Row 1 -->
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">Keywords</label>
-                      <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
+                      <label class="sr-only">Palavras-Chave</label>
+                      <input type="text" name="keywords" class="form-control" placeholder="Palavras-Chave">
                     </div>
     
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">City</label>
-                      <input type="text" name="city" class="form-control" placeholder="City">
+                      <label class="sr-only">Hostname</label>
+                      <input type="text" name="hostname" class="form-control" placeholder="Hostname">
                     </div>
     
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">State</label>
-                      <select name="state" class="form-control">
-                        <option selected="true" disabled="disabled">State (All)</option>
+                      <label class="sr-only">Ano</label>
+                      <select name="made_year" class="form-control">
+                        <option selected="true" disabled="disabled">Ano de fabricação(Todos)</option>
                         {% for key,value in state_choices.items %}
                           <option value="{{ key }}">{{ value }}</option>
                         {% endfor %}
@@ -42,24 +42,24 @@
                   <!-- Form Row 2 -->
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <label class="sr-only">Bedrooms</label>
-                      <select name="bedrooms" class="form-control">
-                        <option selected="true" disabled="disabled">Bedrooms (All)</option>
+                      <label class="sr-only">Fabricante</label>
+                      <select name="manufacturer" class="form-control">
+                        <option selected="true" disabled="disabled">Fabricante (Todos)</option>
                         {% for key,value in bedroom_choices.items %}
                           <option value="{{ key }}">{{ value }}</option>
                         {% endfor %}
                       </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <select name="price" class="form-control" id="type">
-                        <option selected="true" disabled="disabled">Max Price (Any)</option>
+                      <select name="environment" class="form-control" id="type">
+                        <option selected="true" disabled="disabled">Ambiente (Todos)</option>
                         {% for key,value in price_choices.items %}
                           <option value="{{ key }}">{{ value }}</option>
                         {% endfor %}
                       </select>
                     </div>
                   </div>
-                  <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+                  <button class="btn btn-secondary btn-block mt-4" type="submit">Buscar</button>
                 </form>
               </div>
             </div>
@@ -132,25 +132,24 @@
         <div class="container">
           <div class="row text-center">
             <div class="col-md-4">
-              <i class="fas fa-comment fa-4x mr-4"></i>
+              <i class="fas fa-server fa-4x mr-4"></i>
               <hr>
-              <h3>Consulting Services</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-                hic dignissimos ratione ea quae.</p>
+              <h3>Consulta Parque de Servidores x86</h3>
+              
+                <p>Base integrada de informações<p>
+              
             </div>
             <div class="col-md-4">
-              <i class="fas fa-home fa-4x mr-4"></i>
+              <i class="fas fa-tv fa-4x mr-4"></i>
               <hr>
-              <h3>Propery Management</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-                hic dignissimos ratione ea quae.</p>
+              <h3>Alarme 24/7</h3>
+              <p>Integração com Zabbix</p>
             </div>
             <div class="col-md-4">
-              <i class="fas fa-suitcase fa-4x mr-4"></i>
+              <i class="fas fa-search fa-4x mr-4"></i>
               <hr>
-              <h3>Renting & Selling</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-                hic dignissimos ratione ea quae.</p>
+              <h3>Buscador</h3>
+              <p>Busca fácil</p>
             </div>
           </div>
         </div>

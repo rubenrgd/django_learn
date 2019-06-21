@@ -27,11 +27,12 @@ div.breadcrumbs a{
     background: #f8d117;
 }
 
-a.section:link, a.section:visited {
-    color: #000;
-}
-
 .button, input[type="submit"], input[type="button"], .submit-row input, a.button {
     background: #10284e;
     color: #fff;
+}
+
+a.section:link, a.section:visited {
+    color: black;
+    text-decoration: none;
 }
