@@ -1,5 +1,5 @@
 .btn-secondary {
-  color: #10284e !important; }
+  color: #fff !important; }
 
 img {
   width: 100%; }
@@ -15,7 +15,7 @@ img {
   margin-right: 0.4rem; }
 
 #showcase {
-  background: #10284e no-repeat top center fixed/cover;
+  background: url(../img/showcase.jpg) no-repeat top center fixed/cover;
   position: relative;
   min-height: 650px;
   color: #fff;
@@ -31,10 +31,10 @@ img {
     left: 0;
     min-height: 400px;
     width: 100%;
-    background:#10284e; }
+    background: #10284e; }
 
 #services {
-  background: url(../img/building.jpg) no-repeat top center fixed/cover;
+  background: #10284e;
   min-height: 300px;
   position: relative;
   overflow: hidden; }
@@ -48,7 +48,7 @@ img {
     background: #10284e; }
 
 #showcase-inner {
-  background: url(../img/building.jpg) no-repeat top center fixed/cover;
+  background: #10284e;
   position: relative;
   overflow: hidden;
   min-height: 200px; }

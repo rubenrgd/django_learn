@@ -23,10 +23,10 @@
           <nav>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'index' %}">Principal</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="{% url 'listings' %}">Listings</a>
+                <a href="{% url 'listings' %}">Servidores</a>
               </li>
               <li class="breadcrumb-item active">{{ listing.title }}</li>
             </ol>
@@ -38,7 +38,7 @@
       <!-- Listing -->
       <section id="listing" class="py-4">
         <div class="container">
-          <a href="{% url 'listings' %}" class="btn btn-light mb-4">Back To Listings</a>
+          <a href="{% url 'listings' %}" class="btn btn-light mb-4">Voltar</a>
           <div class="row">
             <div class="col-md-9">
               <!-- Home Main Image -->
@@ -93,20 +93,20 @@
                 <div class="col-md-6">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-money-bill-alt"></i> Asking Price:
-                      <span class="float-right">${{ listing.price | intcomma }}</span>
+                      <i class="fas fa-money-bill-alt"></i> Preço de compra:
+                      <span class="float-right">${{ listing.bought_price | intcomma }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bed"></i> Bedrooms:
-                      <span class="float-right">{{ listing.bedrooms }}</span>
+                      <i class="fas fa-server"></i> Hostname:
+                      <span class="float-right">{{ listing.hostname }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bath"></i> Bathrooms:
-                      <span class="float-right">{{ listing.bathrooms }}</span>
+                      <i class="fas fa-tv"></i> Modelo:
+                      <span class="float-right">{{ listing.model }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-car"></i> Garage:
-                      <span class="float-right">{{ listing.garage }}
+                      <i class="fas fa-home"></i> Fabricante:
+                      <span class="float-right">{{ listing.manufacturer }}
                       </span>
                     </li>
                   </ul>
@@ -114,20 +114,20 @@
                 <div class="col-md-6">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-th-large"></i> Square Feet:
-                      <span class="float-right">{{ listing.sqft }}</span>
+                      <i class="fas fa-th-large"></i> Ambiente:
+                      <span class="float-right">{{ listing.env }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-square"></i> Lot Size:
-                      <span class="float-right">{{ listing.lot_size }} Acres
+                      <i class="fas fa-calendar"></i> Ano de aquisição:
+                      <span class="float-right">{{ listing.made_year }} 
                       </span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-calendar"></i> Listing Date:
+                      <i class="fas fa-check"></i> Última verificação:
                       <span class="float-right">{{ listing.list_date }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bed"></i> Realtor:
+                      <i class="fas fa-male"></i> Ponto focal:
                       <span class="float-right">{{ listing.realtor }}
                       </span>
                     </li>

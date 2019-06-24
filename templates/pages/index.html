@@ -2,7 +2,7 @@
 
 {% load humanize %}
 
-{% block title %} | Home {% endblock %}
+{% block title %} | Principal {% endblock %}
 
 {% block content %}
   <!-- Showcase -->
@@ -13,26 +13,24 @@
               <h1 class="display-4 mb-4">
                 Buscador
               </h1>
-              <!--<p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-                voluptatum tempore! Consectetur, id commodi!</p> -->
               <div class="search">
                 <form action="{% url 'search' %}">
                   <!-- Form Row 1 -->
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">Palavras-Chave</label>
-                      <input type="text" name="keywords" class="form-control" placeholder="Palavras-Chave">
+                      <label class="sr-only">Keywords</label>
+                      <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
                     </div>
     
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">Hostname</label>
-                      <input type="text" name="hostname" class="form-control" placeholder="Hostname">
+                      <label class="sr-only">City</label>
+                      <input type="text" name="city" class="form-control" placeholder="City">
                     </div>
     
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">Ano</label>
-                      <select name="made_year" class="form-control">
-                        <option selected="true" disabled="disabled">Ano de fabricação(Todos)</option>
+                      <label class="sr-only">State</label>
+                      <select name="state" class="form-control">
+                        <option selected="true" disabled="disabled">State (All)</option>
                         {% for key,value in state_choices.items %}
                           <option value="{{ key }}">{{ value }}</option>
                         {% endfor %}
@@ -42,17 +40,17 @@
                   <!-- Form Row 2 -->
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <label class="sr-only">Fabricante</label>
-                      <select name="manufacturer" class="form-control">
-                        <option selected="true" disabled="disabled">Fabricante (Todos)</option>
+                      <label class="sr-only">Bedrooms</label>
+                      <select name="bedrooms" class="form-control">
+                        <option selected="true" disabled="disabled">Bedrooms (All)</option>
                         {% for key,value in bedroom_choices.items %}
                           <option value="{{ key }}">{{ value }}</option>
                         {% endfor %}
                       </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <select name="environment" class="form-control" id="type">
-                        <option selected="true" disabled="disabled">Ambiente (Todos)</option>
+                      <select name="price" class="form-control" id="type">
+                        <option selected="true" disabled="disabled">Max Price (Any)</option>
                         {% for key,value in price_choices.items %}
                           <option value="{{ key }}">{{ value }}</option>
                         {% endfor %}
@@ -72,48 +70,51 @@
       <!-- Listings -->
       <section id="listings" class="py-5">
         <div class="container">
-          <h3 class="text-center mb-3">Latest Listings</h3>
+          <h3 class="text-center mb-3">Servidores x86 do Parque BB</h3>
           <div class="row">
             {% if listings %}
               {% for listing in listings %}
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card listing-preview">
                       <img class="card-img-top" src="{{listing.photo_main.url}}" alt="">
-                      <div class="card-img-overlay">
+                      <div class="card-img-top">
                         <h2>
-                          <span class="badge badge-secondary text-white">${{ listing.price | intcomma }}</span>
+                          <span class="badge badge-primary text-white">{{ listing.hostname }}</span>
                         </h2>
                       </div>
                       <div class="card-body">
                         <div class="listing-heading text-center">
-                          <h4 class="text-primary">{{ listing.title }}</h4>
+                          <h4 class="text-primary">{{ listing.model }}</h4>
                           <p>
-                            <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
+                            <i class="fas fa-server text-primary"></i> {{ listing.manufacturer }}, R$ {{ listing.bought_price }}, {{ listing.made_year }}</p>
                         </div>
                         <hr>
-                        <div class="row py-2 text-secondary">
+                        <div class="row py-2 text-primary">
                           <div class="col-6">
-                            <i class="fas fa-th-large"></i> Sqft: {{ listing.sqft }}</div>
+                            <i class="fas fa-th-large"></i> Ambiente: {{ listing.env }}</div>
                           <div class="col-6">
-                            <i class="fas fa-car"></i> Garage: {{ listing.garage }}</div>
+                            <i class="fas fa-globe"></i> Localização: {{ listing.location }}</div>
                         </div>
-                        <div class="row py-2 text-secondary">
+                        <div class="row py-2 text-primary">
                           <div class="col-6">
-                            <i class="fas fa-bed"></i> Bedrooms: {{ listing.bedrooms }}</div>
+                            <i class="fas fa-thumbtack"></i> Coordenada: {{ listing.position }}</div>
                           <div class="col-6">
-                            <i class="fas fa-bath"></i> Bathrooms: {{ listing.bathrooms }}</div>
+                            <i class="fas fa-check"></i> 
+                            {% if listing.is_published == True %}
+                            Status:  <div class="text-secondary w3-round w3-teal">OK</div>
+                            {% endif %} </div>
                         </div>
                         <hr>
-                        <div class="row py-2 text-secondary">
+                        <div class="row py-2 text-primary">
                           <div class="col-6">
                             <i class="fas fa-user"></i> {{ listing.realtor }}</div>
                         </div>
-                        <div class="row text-secondary pb-2">
+                        <div class="row text-primary pb-2">
                           <div class="col-6">
                             <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                         </div>
                         <hr>
-                        <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                        <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">Mais detalhes</a>
                       </div>
                     </div>
                   </div>
@@ -134,22 +135,20 @@
             <div class="col-md-4">
               <i class="fas fa-server fa-4x mr-4"></i>
               <hr>
-              <h3>Consulta Parque de Servidores x86</h3>
-              
-                <p>Base integrada de informações<p>
-              
+              <h3>Consulta ao Parque de Servidores físicos x86</h3>
+              <p>Base consolidade de informações sobre servidores</p>
             </div>
             <div class="col-md-4">
               <i class="fas fa-tv fa-4x mr-4"></i>
               <hr>
-              <h3>Alarme 24/7</h3>
-              <p>Integração com Zabbix</p>
+              <h3>Status 24/7</h3>
+              <p>Integração com Zabbix para coleta de informações em tempo real</p>
             </div>
             <div class="col-md-4">
               <i class="fas fa-search fa-4x mr-4"></i>
               <hr>
-              <h3>Buscador</h3>
-              <p>Busca fácil</p>
+              <h3>Ferramenta de busca</h3>
+              <p>Faça sua busca detalhada</p>
             </div>
           </div>
         </div>
